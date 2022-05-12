@@ -1,31 +1,35 @@
 import "./home.css";
-import logo from "../../logo.svg";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { LoginButton, LogoutButton } from "../AuthButton";
 import UserProfile from "../UserProfile";
+import ReactCountryFlag from "react-country-flag";
 
 const Home = () => {
-  const { user, isLoading, isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
-
+  const { user, isAuthenticated } = useAuth0();
+  console.log(user);
   return (
-    <div className="container">
+    <div className="pt-56">
       {isAuthenticated ? (
         <>
-          <UserProfile user={user} />
-          <LogoutButton />
+          <UserProfile
+            title={`Hi! I'm ${user.name}!`}
+            subtitle={
+              <div className="flex flex-row items-center gap-2 text-md">
+                <ReactCountryFlag countryCode={user?.locale?.split("-")[0]} />
+                <p>{user.email}</p>
+              </div>
+            }
+            photo={user.picture}
+          />
         </>
       ) : (
-        <header className="text-3xl">
-          <img src={logo} className="rounded" alt="logo" />
-          <LoginButton />
-        </header>
+        <>
+          <UserProfile
+            title="Hi! I'm John Doe!"
+            subtitle="Please login to let me know a little bit about yourself"
+          />
+        </>
       )}
-
-      <main>
-        {isLoading ? <p>Loading...</p> : <pre>{JSON.stringify(user)}</pre>}
-      </main>
     </div>
   );
 };

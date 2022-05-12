@@ -1,4 +1,5 @@
 import { Auth0Provider } from "@auth0/auth0-react";
+import Header from "./components/Header";
 import Home from "./components/Home";
 
 function App() {
@@ -11,7 +12,12 @@ function App() {
       clientId={clientId}
       redirectUri={window.location.origin}
     >
-      <Home />
+      <div className="h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+        <div className="container mx-auto max-w-3xl">
+          <Header />
+          <Home />
+        </div>
+      </div>
     </Auth0Provider>
   );
 }
