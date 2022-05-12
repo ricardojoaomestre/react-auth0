@@ -1,0 +1,4 @@
+[context.deploy-preview]
+  environment = { REACT_APP_AUTH0_LOGOUT_REDIRECT_URL = "https://main--rm-react-auth0.netlify.app" }
+[context.production]
+  environment = { REACT_APP_AUTH0_LOGOUT_REDIRECT_URL = "https://rm-react-auth0.netlify.app" }

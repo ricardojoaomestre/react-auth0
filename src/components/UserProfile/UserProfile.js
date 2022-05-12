@@ -2,7 +2,7 @@ const UserProfile = ({ title, subtitle, photo, ...rest }) => {
   return (
     <div className="container mx-auto py-8 px-4" {...rest}>
       <div className="flex gap-8 justify-center">
-        <div className="bg-gray-500 w-20 h-20 rounded-full">
+        <div className="bg-gray-500 w-20 h-20 rounded-full ">
           {photo && (
             <img src={photo} alt="User Profile" className="rounded-full" />
           )}
@@ -11,7 +11,7 @@ const UserProfile = ({ title, subtitle, photo, ...rest }) => {
           <h1 className="text-5xl flex-1 font-body text-primary font-semibold">
             {title}
           </h1>
-          <p className="text-xl font-light text-primary pt-4">{subtitle}</p>
+          <div className="text-xl font-light text-primary pt-4">{subtitle}</div>
         </div>
       </div>
     </div>

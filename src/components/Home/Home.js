@@ -6,7 +6,6 @@ import ReactCountryFlag from "react-country-flag";
 
 const Home = () => {
   const { user, isAuthenticated } = useAuth0();
-  console.log(user);
   return (
     <div className="pt-56">
       {isAuthenticated ? (
